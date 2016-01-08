@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html ng-app="calculator">
+<head>
+ <title>Calculator</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/mystyles.css" type="text/css">
+</head>
+<body>
+
+  <div class="calculatorBody center-block" ng-controller="CalculatorController">
+    <div class="calcHeader"></div>
+    <div class="screen">{{result}}</div>
+    <div class="row">
+        <div class="col-md-2 col-md-offset-1 button">
+          <button class="btn btn-primary btn-sm center-block" ng-click="clearOrderingArr()">AC</button>
+        </div>
+        <div class="col-md-2 button">
+          <button class="btn btn-primary btn-sm center-block">CE</button>
+        </div>
+        <div class="col-md-2 button">
+          <button class="btn btn-primary btn-sm center-block">%</button>
+        </div>
+        <div class="col-md-2 button">
+          <button class="btn btn-primary btn-sm center-block" ng-click="choseOperator('divide')">/</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 col-md-offset-1 button">
+          <button class="btn btn-primary btn-sm center-block" ng-click="assignVar(7)">7</button>
+        </div>
+        <div class="col-md-2 button">
+          <button class="btn btn-primary btn-sm center-block" ng-click="assignVar(8)">8</button>
+        </div>
+        <div class="col-md-2 button">
+          <button class="btn btn-primary btn-sm center-block" ng-click="assignVar(9)">9</button>
+        </div>
+        <div class="col-md-2 button">
+          <button class="btn btn-primary btn-sm center-block" ng-click="choseOperator('multiply')">x</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 col-md-offset-1 button">
+          <button class="btn btn-primary btn-sm center-block" ng-click="assignVar(4)">4</button>
+        </div>
+        <div class="col-md-2 button">
+          <button class="btn btn-primary btn-sm center-block" ng-click="assignVar(5)">5</button>
+        </div>
+        <div class="col-md-2 button">
+          <button class="btn btn-primary btn-sm center-block" ng-click="assignVar(6)">6</button>
+        </div>
+        <div class="col-md-2 button">
+          <button class="btn btn-primary btn-sm center-block" ng-click="choseOperator('subtract')">-</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 col-md-offset-1 button">
+          <button class="btn btn-primary btn-sm center-block" ng-click="assignVar(1)">1</button>
+        </div>
+        <div class="col-md-2 button">
+          <button class="btn btn-primary btn-sm center-block" ng-click="assignVar(2)">2</button>
+        </div>
+        <div class="col-md-2 button">
+          <button class="btn btn-primary btn-sm center-block" ng-click="assignVar(3)">3</button>
+        </div>
+        <div class="col-md-2 button">
+          <button class="btn btn-primary btn-sm center-block" ng-click="choseOperator('add')">+</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 col-md-offset-1 button">
+          <button class="btn btn-primary btn-sm center-block" ng-click="assignVar(0)">0</button>
+        </div>
+        <div class="col-md-2 button">
+          <button class="btn btn-primary btn-sm center-block">.</button>
+        </div>
+        <div class="col-md-2 button">
+          <button class="btn btn-primary btn-sm center-block" ng-click="choseOperator('equals'); calculate()">=</button>
+        </div>
+    </div>
+  </div>
+
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="controllers/CalculatorController.js" type="text/javascript"></script>
+
+</body>
