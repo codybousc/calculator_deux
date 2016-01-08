@@ -27,6 +27,8 @@ $scope.assignVar = function(variable) {
   //If operator has been chosen and there are two or more numbers in variableOrderingArray
   if($scope.operatorChosen && $scope.variableOrderingArray.length > 1) {
     $scope.finalVariableArray.push(parseInt($scope.variableOrderingArray.join("")));
+    // $scope.result = $scope.variableOrderingArray.join("");
+    $scope.result = variable;
     $scope.finalVariableArray.push($scope.operator);
     $scope.operator = "";
 
@@ -36,11 +38,12 @@ $scope.assignVar = function(variable) {
   }
   //If operator has been chosen and variableOrderingArray contains one character
   else if ($scope.operatorChosen && $scope.variableOrderingArray.length == 1) {
+    $scope.result = variable;
     //first push existing variable to finalVariableArray
     $scope.finalVariableArray.push($scope.variableOrderingArray[0]);
+    $scope.variableOrderingArray[0];
     $scope.finalVariableArray.push($scope.operator);
     $scope.operator = "";
-
     //next clear varOrderingArray
     $scope.variableOrderingArray = [];
     //next push current variable into variableOrderingArray
@@ -51,6 +54,8 @@ $scope.assignVar = function(variable) {
   else if (!$scope.operatorChosen && $scope.variableOrderingArray.length >= 1) {
     $scope.variableOrderingArray.push(variable);
     $scope.result = $scope.variableOrderingArray.join("");
+
+
   }
   else if (!$scope.operatorChosen && $scope.variableOrderingArray.length == 0) {
     $scope.variableOrderingArray.push(variable);
@@ -86,7 +91,6 @@ $scope.calculate = function() {
           $scope.result = $scope.result + (firstNum / secondNum);
         }
         console.log("result from first Conditional = ", $scope.result);
-
     }
     else if(isNaN($scope.finalVariableArray[i]) && i > 1) {
       console.log("==================================================================================")
@@ -97,7 +101,7 @@ $scope.calculate = function() {
         $scope.result += secondNum;
       }
       else if ($scope.finalVariableArray[i] == 'subtract') {
-        $scope.result += secondNum;
+        $scope.result -= secondNum;
       }
       else if ($scope.finalVariableArray[i] == 'multiply') {
         $scope.result = $scope.result * secondNum;
@@ -105,15 +109,10 @@ $scope.calculate = function() {
       else if ($scope.finalVariableArray[i] == 'divide') {
         $scope.result = $scope.result / secondNum;
       }
-
   }
-
 }
 console.log("RESULT = ", $scope.result);
-
 }
-
-
 
 $scope.clearOrderingArr = function() {
   $scope.variableOrderingArray = [];
