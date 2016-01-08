@@ -24,6 +24,8 @@ $scope.choseOperator = function(operator) {
 }
 
 $scope.assignVar = function(variable) {
+  console.log("variableOrderingArray = ", $scope.variableOrderingArray);
+  console.log($scope.operatorChosen);
   //If operator has been chosen and there are two or more numbers in variableOrderingArray
   if($scope.operatorChosen && $scope.variableOrderingArray.length > 1) {
     $scope.finalVariableArray.push(parseInt($scope.variableOrderingArray.join("")));
@@ -118,6 +120,7 @@ $scope.clearOrderingArr = function() {
   $scope.variableOrderingArray = [];
   $scope.finalVariableArray = [];
   $scope.result = 0;
+  $scope.operatorChosen = false; 
 }
 
 }]);
